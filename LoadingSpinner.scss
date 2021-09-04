@@ -1,0 +1,61 @@
+@import '~assets/styles/abstracts/index';
+
+$offset: 187;
+$duration: 1.4s;
+
+.c-loading-spinner {
+  width: px-to-em(40px);
+  height: px-to-em(40px);
+  animation: loading-circle-rotator $duration linear infinite;
+
+  &__circle {
+    box-sizing: border-box;
+    animation: loading-circle-dash $duration ease-in-out infinite,
+      loading-circle-colors ($duration * 4) ease-in-out infinite;
+    line-height: 0;
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+  }
+}
+
+@keyframes loading-circle-rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes loading-circle-colors {
+  0% {
+    stroke: #35495e;
+  }
+  25% {
+    stroke: #de3e35;
+  }
+  50% {
+    stroke: #f7c223;
+  }
+  75% {
+    stroke: #41b883;
+  }
+  100% {
+    stroke: #35495e;
+  }
+}
+
+@keyframes loading-circle-dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: $offset / 4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}
