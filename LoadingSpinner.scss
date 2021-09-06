@@ -4,9 +4,13 @@ $offset: 187;
 $duration: 1.4s;
 
 .c-loading-spinner {
-  width: px-to-em(40px);
-  height: px-to-em(40px);
-  animation: loading-circle-rotator $duration linear infinite;
+  text-align: center;
+
+  &__svg {
+    width: px-to-em(40px);
+    height: px-to-em(40px);
+    animation: loading-circle-rotator $duration linear infinite;
+  }
 
   &__circle {
     box-sizing: border-box;
@@ -16,6 +20,11 @@ $duration: 1.4s;
     stroke-dasharray: $offset;
     stroke-dashoffset: 0;
     transform-origin: center;
+  }
+
+  &__text {
+    animation: none;
+    fill: $g-text-color;
   }
 }
 
